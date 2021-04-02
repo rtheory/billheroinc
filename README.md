@@ -40,3 +40,11 @@ This repository shows a successful example.
 No. Subdomains of github.io all point to the same IPs/load balancer. For example, abc.github.io and xyz.github.io and doesntmatter.github.io all resolve to the same server. The only important thing is that GitHub Pages allows you to set a custom domain (CNAME file in your repository) that matches your target URL. 
 
 Since all .github.io subdomains resolve to the same server, that server will look across the listing of custom domains it has assigned to see which repository to redirect the visitor to. It doesn't try to match usernames, it doesn't try to match repository names, and it doesn't try to match what the target's DNS CNAME record actually pointed to.
+
+
+*GitHub Pages says the CNAME is already taken*
+
+After testing, the GitHub Pages CNAME (custom domain assignment) becomes available again:
+- Immediately after deletion of the repository
+- Immediately after the repository goes private
+	- GitHub Pro allows you to have GitHub Pages in a private repository, so if a search for [targetdomain] does not yield any CNAME file results, it must be stored in someone's private repository. You will not be able to set this custom domain until this CNAME file or repository is deleted.
