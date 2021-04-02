@@ -28,7 +28,15 @@ This repository shows a successful example.
 
  - Target: api-docs.rtheory.net
  - Target has a CNAME DNS record: doesntmatter.github.io
+ - My GitHub username: rtheory (it doesn't need to match domain name though)
  - This repository is named: couldbeanything
  - This repository is set to custom domain: api-docs.rtheory.net, which was available
- - Takeover succeeded
+ - Takeover succeeded. Notice how the legitimate CNAME record (doesntmatter.github.io), repository name (couldbeanything) and my GitHub username (rtheory) don't have any impact on whether or not this succeeds. The only real requirement is GitHub pages allowing you to set a custom domain on your repository to point to your target domain (api-docs.rtheory.net). 
 
+## FAQ
+
+*Doesn't my username or repository name need to match the target's github.io CNAME record in DNS?*
+
+No. Subdomains of github.io all point to the same IPs/load balancer. For example, abc.github.io and xyz.github.io and doesntmatter.github.io all resolve to the same server. The only important thing is that GitHub Pages allows you to set a custom domain (CNAME file in your repository) that matches your target URL. 
+
+Since all .github.io subdomains resolve to the same server, that server will look across the listing of custom domains it has assigned to see which repository to redirect the visitor to. It doesn't try to match usernames, it doesn't try to match repository names, and it doesn't try to match what the target's DNS CNAME record actually pointed to.
